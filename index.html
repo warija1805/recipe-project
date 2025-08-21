@@ -1,163 +1,96 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Aurora Gourmet — Recipe Finder</title>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="css/styles.css" />
-  <meta name="theme-color" content="#0d0f1a" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GourmetFinder | Discover Food. Feel Luxury.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <!-- Top Navigation -->
-  <header class="nav">
-    <div class="nav-left">
-      <div class="logo">
-        <span class="logo-mark">🍽</span>
-        <span class="logo-text">Aurora <b>Gourmet</b></span>
-      </div>
-      <div class="hero-badge" id="daily-feature">Feature of the Day</div>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
     </div>
 
-    <div class="nav-right">
-      <div class="search">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 21l-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z"/></svg>
-        <input id="search" class="search-input" type="text" placeholder="Search dish, ingredient, or country…" autocomplete="off" />
-        <button id="voice-btn" class="icon-btn" title="Voice search (Ctrl+M)" aria-label="Voice search">
-          <svg class="icon" viewBox="0 0 24 24"><path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 1 0-6 0v5a3 3 0 0 0 3 3Zm-7-3a7 7 0 0 0 14 0M12 19v3"/></svg>
-        </button>
-        <ul id="suggestions" class="suggestions" role="listbox" aria-label="Search suggestions"></ul>
-      </div>
-
-      <div class="chip-row" id="cuisine-chips">
-        <!-- cuisine chips injected -->
-      </div>
-
-      <button id="random-btn" class="btn ghost">Surprise Me</button>
-      <button id="favorites-toggle" class="btn outline" aria-pressed="false" title="Show favorites only (F)">Favorites</button>
-
-      <button id="shopping-btn" class="btn solid" title="Open shopping list">
-        <svg class="icon" viewBox="0 0 24 24"><path d="M6 6h15l-1.5 12h-12L6 6Zm3 0a3 3 0 1 1 6 0"/></svg>
-        List
-      </button>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <section class="hero" id="hero">
-    <div class="hero-gradient"></div>
-    <div class="hero-content">
-      <h1 class="hero-title" id="hero-title">Discover lavish flavors from every corner of the world</h1>
-      <p class="hero-sub">Neon-glass UI • Gorgeous cards • Smooth animations • Favorites & Shopping List</p>
-    </div>
-  </section>
-
-  <!-- Controls -->
-  <section class="controls">
-    <div class="toggle">
-      <label class="switch">
-        <input id="healthy-toggle" type="checkbox" />
-        <span class="slider"></span>
-      </label>
-      <span class="toggle-label">Healthy picks only</span>
-    </div>
-    <div class="toggle">
-      <label class="switch">
-        <input id="veggie-toggle" type="checkbox" />
-        <span class="slider"></span>
-      </label>
-      <span class="toggle-label">Vegetarian</span>
-    </div>
-    <div class="right-hint">
-      <span class="kbd">/</span> focus search · <span class="kbd">F</span> favorites · <span class="kbd">G</span> random · <span class="kbd">?</span> help
-    </div>
-  </section>
-
-  <!-- Grid -->
-  <main class="grid-wrap">
-    <div id="cards-grid" class="cards-grid" aria-live="polite">
-      <!-- skeletons initially -->
-      <div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div>
-      <div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div>
-      <div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div>
-    </div>
-  </main>
-
-  <!-- Recipe Modal -->
-  <div id="modal" class="modal hidden" aria-hidden="true">
-    <div id="modal-backdrop" class="modal-backdrop"></div>
-    <div class="modal-content" role="dialog" aria-modal="true">
-      <button id="modal-close" class="modal-close" aria-label="Close">✕</button>
-      <div id="modal-hero" class="modal-hero"></div>
-      <div class="modal-head">
-        <h2 id="modal-title" class="modal-title"></h2>
-        <div class="modal-meta">
-          <span id="modal-flag" class="flag"></span>
-          <span id="modal-country" class="country"></span>
-          <span id="modal-cuisine" class="cuisine"></span>
-          <button id="modal-fav" class="icon-pill" title="Save to favorites">♡ Save</button>
-          <button id="modal-print" class="icon-pill" title="Print recipe">🖨 Print</button>
-          <button id="modal-add-all" class="icon-pill" title="Add all ingredients to shopping list">➕ Add All</button>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-chef-hat"></i>
+                <span>GourmetFinder</span>
+            </div>
+            
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search recipes...">
+                    <button id="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="suggestions-box"></div>
+            </div>
+            
+            <button id="favorites-toggle" class="favorites-btn">
+                <i class="fas fa-heart"></i>
+                <span>Favorites</span>
+            </button>
         </div>
-      </div>
+    </header>
 
-      <div class="modal-body">
-        <div class="ingredients-col">
-          <h3>Ingredients</h3>
-          <ul id="modal-ingredients" class="ingredients"></ul>
+    <main class="main-content">
+        <div class="container">
+            <div class="loading-spinner" id="loading-spinner">
+                <div class="spoon-spinner">
+                    <i class="fas fa-utensil-spoon"></i>
+                </div>
+                <p>Finding gourmet recipes...</p>
+            </div>
+
+            <div class="filters-bar">
+                <h2 id="results-title">Popular Recipes</h2>
+                <div class="filter-options">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="favorites">Favorites Only</button>
+                </div>
+            </div>
+
+            <div class="recipes-grid" id="recipes-grid"></div>
+
+            <div class="no-results" id="no-results">
+                <i class="fas fa-search"></i>
+                <h3>No recipes found</h3>
+                <p>Try searching for something else</p>
+            </div>
         </div>
-        <div class="instructions-col">
-          <h3>Instructions</h3>
-          <ol id="modal-instructions" class="instructions"></ol>
-          <div id="modal-fact" class="fun-fact"></div>
+    </main>
+
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="recipe-modal" id="recipe-modal">
+            <button class="close-modal" id="close-modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-content">
+                <!-- Content will be inserted via JavaScript -->
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 
-  <!-- Shopping List Drawer -->
-  <aside id="drawer" class="drawer">
-    <div class="drawer-head">
-      <h3>Shopping List</h3>
-      <div class="drawer-actions">
-        <button id="drawer-export" class="btn tiny outline" title="Copy text">Copy</button>
-        <button id="drawer-clear" class="btn tiny ghost" title="Clear list">Clear</button>
-        <button id="drawer-close" class="icon-btn" aria-label="Close">✕</button>
-      </div>
-    </div>
-    <ul id="drawer-list" class="drawer-list"></ul>
-    <div class="drawer-footer">
-      <input id="drawer-input" class="drawer-input" placeholder="Add custom item…" />
-      <button id="drawer-add" class="btn tiny solid">Add</button>
-    </div>
-  </aside>
+    <footer class="footer">
+        <div class="container">
+            <div class="social-icons">
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-pinterest"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+            </div>
+            <p class="tagline">Discover Food. Feel Luxury.</p>
+            <p class="copyright">© 2023 GourmetFinder | All rights reserved</p>
+        </div>
+    </footer>
 
-  <!-- Toasts -->
-  <div id="toasts" class="toasts" aria-live="polite"></div>
-
-  <!-- Help Modal -->
-  <div id="help" class="modal hidden">
-    <div id="help-backdrop" class="modal-backdrop"></div>
-    <div class="help-content">
-      <button id="help-close" class="modal-close">✕</button>
-      <h2>Shortcuts & Tips</h2>
-      <ul class="help-list">
-        <li><span class="kbd">/</span> Focus search</li>
-        <li><span class="kbd">F</span> Favorites only</li>
-        <li><span class="kbd">G</span> Surprise me</li>
-        <li><span class="kbd">?</span> Open this help</li>
-        <li><span class="kbd">Ctrl</span> + <span class="kbd">M</span> Voice search</li>
-      </ul>
-    </div>
-  </div>
-
-  <footer class="footer">
-    <small>© Aurora Gourmet — lavish UI, pure HTML/CSS/JS. Demo data included.</small>
-  </footer>
-
-  <script src="js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
